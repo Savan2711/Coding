@@ -93,3 +93,42 @@ public:
         return true;
     }
 };
+
+/* Solution using function - 0 ms */
+class Solution {
+public:
+    
+    int process(string& s)
+    {
+        int p1 = -1;
+        for(int i = 0; i < s.size(); i++)
+        {
+            if(s[i] != '#')
+            {
+                if(p1 < 0) {p1 = 0;}
+                else {p1++;}
+                s[p1] = s[i];
+            }
+            else
+            {
+                p1--;
+            }
+        }
+        return p1;
+    }
+    
+    bool backspaceCompare(string s, string t) {
+        
+        int p1 = process(s), p2 = process(t);
+        // cout << p1 << " " << p2 << endl;
+        if(p1 != p2) return false;
+        
+        for(int i = 0; i <= p1; i++)
+        {
+            if(s[i] != t[i]) return false;
+        }
+        
+        return true;
+        
+    }
+};
