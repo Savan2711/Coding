@@ -7,7 +7,6 @@ public:
     string removeDuplicates(string s, int k) {
         
         int ln = s.length();
-        
         stack<pair<char, int>> st;
         
         for(int i = ln - 1; i >= 0; i--)
